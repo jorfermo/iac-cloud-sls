@@ -201,6 +201,5 @@ terraform.rc
 .history
 .ionide
 
-# Support for Project snippet scope
 
-# End of https://www.toptal.com/developers/gitignore/api/terraform,node,visualstudiocode,serverless
+.DS_Store
