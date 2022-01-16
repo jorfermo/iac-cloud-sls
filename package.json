@@ -1,0 +1,16 @@
+{
+  "name": "iac-cloud-sls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm": "^8.3.1",
+    "serverless-webpack": "^5.6.0",
+    "webpack": "^5.66.0"
+  }
+}

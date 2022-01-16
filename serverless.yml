@@ -1,0 +1,22 @@
+service: iac-cloud-sls
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  region: ${opt:region, 'eu-central-1'}
+  lambdaHashingVersion: '20201221'
+
+package:
+  individually: true
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    packager: npm
+
+functions:
+  helloWorldJS:
+    runtime: nodejs14.x
+    handler: src/aws/lambda/hello-world/HelloWorld.handler
