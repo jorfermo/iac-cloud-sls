@@ -26,10 +26,10 @@ functions:
   helloWorldJS:
     runtime: nodejs14.x
     handler: src/aws/lambda/hello-world/HelloWorld.handler
-    # events:
-    #   - httpApi:
-    #       path: /hello-world-js
-    #       method: GET
+    events:
+      - httpApi:
+          path: /hello-world-js
+          method: GET
 
   helloWorldPython:
     runtime: python3.8
@@ -37,7 +37,7 @@ functions:
     package:
       include:
         - src/aws/lambda/hello-world/HelloWorld.py
-  #   events:
-  #     - httpApi:
-  #         path: /hello-world-python
-  #         method: GET
+    events:
+      - httpApi:
+          path: /hello-world-python
+          method: GET
