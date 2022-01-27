@@ -18,14 +18,15 @@ plugins:
 custom:
   webpack:
     packager: npm
+    excludeFiles: '**/*.py'
 #   pythonRequirements:
 #     dockerizePip: non-linux
 #     zip: true
 
 functions:
-  helloWorldJS:
+  helloWorldJavascript:
     runtime: nodejs14.x
-    handler: src/aws/lambda/hello-world/HelloWorld.handler
+    handler: src/aws/lambda/javascript/HelloWorld.handler
     events:
       - httpApi:
           path: /hello-world-js
@@ -33,10 +34,10 @@ functions:
 
   helloWorldPython:
     runtime: python3.8
-    handler: src/aws/lambda/hello-world/HelloWorld.handler
+    handler: src/aws/lambda/python/HelloWorld.handler
     package:
       include:
-        - src/aws/lambda/hello-world/HelloWorld.py
+        - src/aws/lambda/python/HelloWorld.py
     events:
       - httpApi:
           path: /hello-world-python
