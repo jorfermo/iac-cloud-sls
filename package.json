@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "npm": "^8.3.1",
+    "serverless-python-requirements": "^5.3.0",
     "serverless-webpack": "^5.6.0",
     "webpack": "^5.66.0"
   }

@@ -13,15 +13,22 @@ package:
 
 plugins:
   - serverless-webpack
-  # - serverless-python-requirements
+  - serverless-python-requirements
 
 custom:
   webpack:
     packager: npm
     excludeFiles: '**/*.py'
-#   pythonRequirements:
-#     dockerizePip: non-linux
-#     zip: true
+  pythonRequirements:
+    dockerizePip: true
+    dockerImage: lambci/lambda:build-python3.8
+    layer:
+      name: ${self:service}-${self:provider.stage}-python-layer
+      description: Python requirements lambda layer
+      compatibleRuntimes:
+        - python3.8
+      allowedAccounts:
+        - '*'
 
 functions:
   helloWorldJavascript:
@@ -41,4 +48,17 @@ functions:
     events:
       - httpApi:
           path: /hello-world-python
+          method: GET
+
+  coinRankingPython:
+    runtime: python3.8
+    handler: src/aws/lambda/python/CoinRanking.handler
+    package:
+      include:
+        - src/aws/lambda/python/CoinRanking.py
+    layers:
+      - Ref: PythonRequirementsLambdaLayer
+    events:
+      - httpApi:
+          path: /coin-ranking-python
           method: GET
