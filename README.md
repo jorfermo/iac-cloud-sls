@@ -27,3 +27,12 @@ And serverless framework for cloud services:
 ```bash
 serverless deploy
 ```
+
+## Cleanup
+
+```bash
+cd infrastructure
+terraform destroy
+cd ..
+serverless remove
+```
